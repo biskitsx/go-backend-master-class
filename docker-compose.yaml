@@ -1,13 +1,13 @@
 version: '3.8'
 services:
   postgres:
-    container_name: postgres_container
+    container_name: pg
     image: postgres:alpine
-    volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+    # volumes:
+    #   - ./postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: mypassword
-      POSTGRES_DB: pg
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: simple_bank
     ports:
       - 5434:5432
