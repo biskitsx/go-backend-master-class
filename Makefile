@@ -7,4 +7,9 @@ migrateup:
 migratedown:
 	migrate -path db/migration -database "postgresql://root:root@127.0.0.1:5434/simple_bank?sslmode=disable" -verbose down
 
-.PHONY: pg migrateup migratedown
+sqlc:
+	sqlc generate
+
+test:
+	go test -v -cover ./db/sqlc
+.PHONY: pg migrateup migratedown sqlc
