@@ -15,4 +15,8 @@ sqlc:
 
 test:
 	go test -v -cover ./db/sqlc -count=1
-.PHONY: db migrateup migratedown sqlc
+
+server:
+	go run main.go
+
+.PHONY: db migrateup migratedown sqlc server
