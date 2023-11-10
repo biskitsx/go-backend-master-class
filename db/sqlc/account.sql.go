@@ -88,8 +88,8 @@ SELECT id, owner, balance, currency, created_at FROM accounts ORDER BY owner LIM
 `
 
 type ListAccountParams struct {
-	Limit  int64 `json:"limit"`
-	Offset int64 `json:"offset"`
+	Limit  int32 `json:"limit"`
+	Offset int32 `json:"offset"`
 }
 
 func (q *Queries) ListAccount(ctx context.Context, arg ListAccountParams) ([]Account, error) {
@@ -98,7 +98,7 @@ func (q *Queries) ListAccount(ctx context.Context, arg ListAccountParams) ([]Acc
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Account
+	items := []Account{}
 	for rows.Next() {
 		var i Account
 		if err := rows.Scan(
