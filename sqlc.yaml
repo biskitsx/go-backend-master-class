@@ -1,12 +1,8 @@
 version: "2"
-cloud:
-    project: "01HET9MTR4AFZJVKM253362X52"
 sql:
     - engine: "postgresql"
       queries: "./db/query/"
       schema: "./db/migration/"
-      database:
-          managed: true
       gen:
           go:
               package: "db"
@@ -17,3 +13,4 @@ sql:
               emit_prepared_queries: false
               emit_interface: false
               emit_exact_table_names: false
+              emit_empty_slices: true
