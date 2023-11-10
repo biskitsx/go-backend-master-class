@@ -14,5 +14,5 @@ sqlc:
 	sqlc generate
 
 test:
-	go test -v -cover ./db/sqlc
+	go test -v -cover ./db/sqlc -count=1
 .PHONY: db migrateup migratedown sqlc
