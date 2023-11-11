@@ -13,6 +13,10 @@ jobs:
     test:
         name: Test
         runs-on: ubuntu-latest
+        env:
+            DB_DRIVER: "postgres"
+            DB_SOURCE: "postgresql://root:root@localhost:5434/simple_bank?sslmode=disable"
+            SERVER_ADDRESS: "0.0.0.0:8080"
         services:
             # Label used to access the service container
             postgres:
