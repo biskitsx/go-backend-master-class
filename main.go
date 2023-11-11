@@ -7,23 +7,22 @@ import (
 
 	"github.com/biskitsx/go-backend-master-class/api"
 	db "github.com/biskitsx/go-backend-master-class/db/sqlc"
-)
-
-const (
-	dbDriver      = "postgres"
-	dbSource      = "postgresql://root:root@localhost:5434/simple_bank?sslmode=disable"
-	serverAddress = "0.0.0.0:8080"
+	"github.com/biskitsx/go-backend-master-class/util"
 )
 
 func main() {
-	conn, err := sql.Open(dbDriver, dbSource)
+	config, err := util.LoadConfig(".")
+	if err != nil {
+		panic(err)
+	}
+	conn, err := sql.Open(config.DBdriver, config.DBSource)
 	if err != nil {
 		panic(err)
 	}
 
 	store := db.NewStore(conn)
 	server := api.NewServer(*store)
-	err = server.Start(serverAddress)
+	err = server.Start(config.ServerAddress)
 	if err != nil {
 		panic(err)
 	}
