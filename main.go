@@ -8,6 +8,7 @@ import (
 	"github.com/biskitsx/go-backend-master-class/api"
 	db "github.com/biskitsx/go-backend-master-class/db/sqlc"
 	"github.com/biskitsx/go-backend-master-class/util"
+	_ "github.com/golang/mock/mockgen/model"
 )
 
 func main() {
