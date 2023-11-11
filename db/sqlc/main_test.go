@@ -5,6 +5,7 @@ import (
 	"os"
 	"testing"
 
+	"github.com/biskitsx/go-backend-master-class/util"
 	_ "github.com/lib/pq"
 )
 
@@ -17,9 +18,13 @@ var testQueries *Queries
 var testDB *sql.DB
 
 func TestMain(m *testing.M) {
-	// conn, err := pgx.Connect(context.Background(), dbSource)
 	var err error
-	testDB, err = sql.Open(dbDriver, dbSource)
+	config, err := util.LoadConfig("../.")
+	if err != nil {
+		panic(err)
+	}
+
+	testDB, err = sql.Open(config.DBdriver, config.DBSource)
 	if err != nil {
 		panic(err)
 	}
