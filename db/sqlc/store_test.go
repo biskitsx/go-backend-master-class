@@ -2,7 +2,6 @@ package db
 
 import (
 	"context"
-	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/require"
@@ -74,7 +73,6 @@ func TestTranferTx(t *testing.T) {
 		require.NotEmpty(t, toAccount)
 
 		// check account's balance
-		fmt.Printf("after: %v %v\n", fromAccount.Balance, toAccount.Balance)
 		dif1 := account1.Balance - fromAccount.Balance
 		dif2 := toAccount.Balance - account2.Balance
 		// fmt.Printf("dif: %v %v", dif1, dif2)
