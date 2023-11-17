@@ -20,7 +20,7 @@ sqlc:
 	sqlc generate
 
 test:
-	go test -v -cover ./db/sqlc -count=1
+	go test -v -cover -short ./...
 
 server:
 	go run main.go
