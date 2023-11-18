@@ -12,6 +12,9 @@ jobs:
         name: Build image
         runs-on: ubuntu-latest
         steps:
+            - name: Checkout repo
+              uses: actions/checkout@v3
+
             - name: Configure AWS credentials
               uses: aws-actions/configure-aws-credentials@0e613a0980cbf65ed5b322eb7a1e075d28913a83
               with:
