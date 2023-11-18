@@ -68,7 +68,7 @@ func (server *Server) getAccount(ctx *gin.Context) {
 	}
 	if authPayload.Username != account.Owner {
 		err = errors.New("account doesn't belong to the authenticated user")
-		ctx.JSON(http.StatusForbidden, errorResponse(err))
+		ctx.JSON(http.StatusUnauthorized, errorResponse(err))
 		return
 	}
 
