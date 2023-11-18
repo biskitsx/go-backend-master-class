@@ -21,6 +21,3 @@
 go.work
 
 postgres_data
-
-*.env
-# app.env
