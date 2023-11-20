@@ -7,6 +7,9 @@ restartdb:
 migrateup:
 	migrate -path db/migration -database "postgresql://root:root@127.0.0.1:5434/simple_bank?sslmode=disable" -verbose up           
 
+migrateuprds:
+	migrate -path db/migration -database "postgresql://postgres:8uwVgHX7QMAl7fiUBkxX@database-1.ct4gdakq4sir.ap-southeast-1.rds.amazonaws.com/" -verbose up           
+
 migratedown:
 	migrate -path db/migration -database "postgresql://root:root@127.0.0.1:5434/simple_bank?sslmode=disable" -verbose down
 
